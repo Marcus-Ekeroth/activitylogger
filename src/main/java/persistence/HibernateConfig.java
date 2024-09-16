@@ -1,5 +1,8 @@
 package persistence;
 
+import entities.ActivityEnt;
+import entities.CityInfo;
+import entities.WeatherInfo;
 import enums.HibernateConfigState;
 import jakarta.persistence.EntityManagerFactory;
 import lombok.NoArgsConstructor;
@@ -14,7 +17,7 @@ import java.util.Properties;
 public class HibernateConfig {
 
     private static EntityManagerFactory entityManagerFactory;
-    private static String dbName = "";
+    private static String dbName = "activity";
 
     public static EntityManagerFactory getEntityManagerFactoryConfig(HibernateConfigState state, String db) {
         dbName = db;
@@ -31,6 +34,9 @@ public class HibernateConfig {
     private static void getAnnotationConfiguration(Configuration configuration) {
         // add annotated classes --- remember to add new entities here
         //configuration.addAnnotatedClass(Package.class);
+        configuration.addAnnotatedClass(ActivityEnt.class);
+        configuration.addAnnotatedClass(CityInfo.class);
+        configuration.addAnnotatedClass(WeatherInfo.class);
     }
 
     private static EntityManagerFactory buildEntityFactoryConfig() {

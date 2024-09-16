@@ -17,7 +17,7 @@ public class WeatherInfoDTO {
     @ToString
     @AllArgsConstructor
     @NoArgsConstructor
-    private class CurrentData {
+    public class CurrentData {
         private double temperature;  // In Celsius or Fahrenheit
         private String skyText;      // Description of sky condition (e.g., clear, cloudy)
         private int humidity;        // Humidity percentage
